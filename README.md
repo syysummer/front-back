@@ -1,4 +1,24 @@
-### 项目介绍
+# front-back-ts
+
+## Project setup
 ```
-一个基于Vue和ts开发的项目
+npm install
 ```
+
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
+
+### Compiles and minifies for production
+```
+npm run build
+```
+
+### Lints and fixes files
+```
+npm run lint
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
