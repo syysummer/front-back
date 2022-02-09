@@ -2,7 +2,7 @@ import Vue from 'vue'
 import { ActionTree } from 'vuex'
 import { SocketState } from './types'
 import { RootState } from '../types'
-import { Globals } from '@/globals'
+import { Globals } from '@/config/globals'
 import { SocketActions } from '@/api/socketActions'
 // import { EventBus, FlashMessageTypes } from '@/eventBus'
 import { upperFirst, camelCase } from 'lodash'
@@ -42,8 +42,7 @@ export const actions: ActionTree<SocketState, RootState> = {
       // This is most likely a moonraker restart, so only partially reset.
       await dispatch('reset', modules, { root: true })
       commit('setSocketConnecting', true)
-      // 暂时处理
-      // Vue.$socket.connect()
+      Vue.$socket.connect()
     }
 
     if (e.wasClean && !retry) {
@@ -140,7 +139,7 @@ export const actions: ActionTree<SocketState, RootState> = {
   },
 
   async notifyKlippyReady () {
-    // consola.debug('Klippy Ready')
+    console.log('Klippy Ready')
   },
 
   async notifyFilelistChanged ({ dispatch }, payload) {

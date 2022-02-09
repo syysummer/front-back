@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueI18n, { Locale } from 'vue-i18n'
-import store from '@/store'
-import getBrowserLocale from '@/util/get-browser-locale'
+import store from '@/store/index'
+import getBrowserLocale from '@/utils/get-browser-locale'
 import messages from '@/locales/en.js'
 
 Vue.use(VueI18n)
@@ -10,8 +10,9 @@ Vue.use(VueI18n)
  * Loads the starting locale for the user.
  */
 export const getStartingLocale = () => {
+  
   const browserLocale = getBrowserLocale({ countryCodeOnly: true })
-  const supportedLocales = store.state.config?.hostConfig.locales
+  const supportedLocales = store && store.state.config?.hostConfig.locales
   if (
     supportedLocales &&
     browserLocale &&

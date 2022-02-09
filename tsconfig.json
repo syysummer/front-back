@@ -12,6 +12,7 @@
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
     "baseUrl": ".",
+    "noImplicitAny": false,
     "types": [
       "webpack-env"
     ],
@@ -31,11 +32,8 @@
     "src/**/*.ts",
     "src/**/*.tsx",
     "src/**/*.vue",
-    "src/**/*.yaml",
-    "src/**/*.yml",
     "tests/**/*.ts",
     "tests/**/*.tsx",
-    "types.d.ts",
     "src/locales/*.js"
   ],
   "exclude": [

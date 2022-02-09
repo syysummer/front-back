@@ -1,8 +1,7 @@
 import store from '@/store'
 // import { EventBus, FlashMessageTypes } from '@/eventBus'
-import consola from 'consola'
 import Axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios'
-import { Globals } from '@/globals'
+import { Globals } from '@/config/globals'
 
 // Create a base instance with sane defaults.
 const httpClient = Axios.create({
@@ -78,7 +77,6 @@ const errorInterceptor = (error: AxiosError) => {
   if (!error.response) {
     // Network / Server Error.
     if (error.message) message = error.message
-    consola.debug(message || 'Network error')
     return Promise.reject(error)
   }
 
@@ -89,11 +87,9 @@ const errorInterceptor = (error: AxiosError) => {
   const url = error.config.url || ''
   switch (error.response.status) {
     case 500:
-      consola.debug(error.response.status, error.message, message)
       // EventBus.$emit(message || 'Server error', { type: FlashMessageTypes.error })
       break
     case 400:
-      consola.debug(error.response.status, error.message, message)
       if (!handledErrorRequests.includes(url)) {
         // EventBus.$emit(message || 'Server error', { type: FlashMessageTypes.error })
       }
@@ -105,11 +101,9 @@ const errorInterceptor = (error: AxiosError) => {
       }
       break
     case 404:
-      consola.debug(error.response.status, error.message, message)
       // EventBus.$emit(message || 'Server error', { type: FlashMessageTypes.warning })
       break
     default:
-      consola.debug(error.response.status, error.message)
       // EventBus.$emit(message || 'Server error', { type: FlashMessageTypes.error })
   }
 

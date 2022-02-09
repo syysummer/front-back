@@ -3,7 +3,7 @@ import { GetterTree } from 'vuex'
 import { RootState } from '../types'
 import { PrinterState, Heater, Fan, OutputPin, Sensor, RunoutSensor, Extruder, MCU } from './types'
 import { get } from 'lodash'
-import getKlipperType from '@/util/get-klipper-type'
+import getKlipperType from '@/utils/get-klipper-type'
 
 export const getters: GetterTree<PrinterState, RootState> = {
 
@@ -588,7 +588,7 @@ export const getters: GetterTree<PrinterState, RootState> = {
 
   getPrinterWarnings: (state, getters) => {
     const config = getters.getPrinterConfig()
-    const warnings = []
+    const warnings: any[] = []
 
     if (config && !('virtual_sdcard' in config)) {
       warnings.push({ message: '[virtual_sdcard] not found in printer configuration.' })

@@ -71,13 +71,14 @@ export const getters: GetterTree<ConfigState, RootState> = {
    * Should augment vuetifies default.
    */
   getTheme: (state) => {
-    const v = vuetify.framework.theme
+    // 暂时注释
+    // const v = vuetify.framework.theme
     const o = state.uiSettings.theme
 
     const r: ThemeConfig = {
       ...state.uiSettings.theme,
       currentTheme: {
-        ...v.currentTheme,
+        // ...v.currentTheme,
         ...o.currentTheme
       }
     }

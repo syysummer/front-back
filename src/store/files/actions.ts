@@ -1,10 +1,10 @@
 import { ActionTree } from 'vuex'
 import { FilesState, KlipperFile, AppDirectory, FileChangeSocketResponse, FileUpdate, AppFileWithMeta, KlipperFileWithMeta, AppFile, DiskUsage } from './types'
 import { RootState } from '../types'
-import formatAsFile from '@/util/format-as-file'
-import getFilePaths from '@/util/get-file-paths'
+import formatAsFile from '@/utils/format-as-file'
+import getFilePaths from '@/utils/get-file-paths'
 import { SocketActions } from '@/api/socketActions'
-import { Globals } from '@/globals'
+import { Globals } from '@/config/globals'
 import { HistoryItem } from '../history/types'
 
 export const actions: ActionTree<FilesState, RootState> = {

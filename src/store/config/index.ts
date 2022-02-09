@@ -4,7 +4,7 @@ import { actions } from './actions'
 import { mutations } from './mutations'
 import { ConfigState } from './types'
 import { RootState } from '../types'
-import { Globals } from '@/globals'
+import { Globals } from '@/config/globals'
 
 export const defaultState = (): ConfigState => {
   return {

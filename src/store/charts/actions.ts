@@ -1,6 +1,6 @@
 import { ActionTree } from 'vuex'
 import { SocketActions } from '@/api/socketActions'
-import { Globals } from '@/globals'
+import { Globals } from '@/config/globals'
 import { ChartData, ChartState } from './types'
 import { RootState } from '../types'
 import { isEqual } from 'lodash'

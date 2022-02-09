@@ -2,7 +2,7 @@ import { ActionTree } from 'vuex'
 import { ServerState, ServerThrottledState } from './types'
 import { RootState } from '../types'
 import { SocketActions } from '@/api/socketActions'
-import { Globals } from '@/globals'
+import { Globals } from '@/config/globals'
 import { AppPushNotification } from '../notifications/types'
 
 let retryTimeout: number

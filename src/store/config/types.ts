@@ -1,5 +1,4 @@
 import { AppTablePartialHeader } from '@/types/tableheaders'
-import { VuetifyThemeItem } from 'vuetify/types/services/theme'
 
 export interface ConfigState {
   [key: string]: any;
@@ -51,7 +50,7 @@ export interface GeneralConfig {
 
 // Config stored in moonraker db
 export interface ThemeConfig {
-  currentTheme: {[index: string]: string | Partial<VuetifyThemeItem> | undefined }; // the color list.
+  currentTheme: {[index: string]: string | undefined }; // the color list.
   isDark: boolean; // inidicates if the theme as a whole is dark or not.
   logo: SupportedThemeLogo; // Current logo to use.
 }

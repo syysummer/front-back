@@ -4,8 +4,7 @@ import { RootState } from '../types'
 import { handlePrintStateChange, handleCurrentFileChange } from '../helpers'
 import { handleAddChartEntry, handleSystemStatsChange, handleMcuStatsChange } from '../chart_helpers'
 import { SocketActions } from '@/api/socketActions'
-import { Globals } from '@/globals'
-import consola from 'consola'
+import { Globals } from '@/config/globals'
 
 // let retryTimeout: number
 
@@ -36,7 +35,7 @@ export const actions: ActionTree<PrinterState, RootState> = {
    * Fires as a part of a socket action.
    */
   async onPrintCancel () {
-    consola.debug('Print Cancelled')
+    console.log('Print Cancelled')
   },
 
   /**
@@ -44,7 +43,7 @@ export const actions: ActionTree<PrinterState, RootState> = {
    * Fires as a part of a socket action.
    */
   async onPrintPause () {
-    consola.debug('Print Paused')
+    console.log('Print Paused')
   },
 
   /**
@@ -52,7 +51,7 @@ export const actions: ActionTree<PrinterState, RootState> = {
    * Fires as a part of a socket action.
    */
   async onPrintResume () {
-    consola.debug('Print Resumed')
+    console.log('Print Resumed')
   },
 
   /**
@@ -60,7 +59,7 @@ export const actions: ActionTree<PrinterState, RootState> = {
    * Fires as a watch on a printer state change.
    */
   async onPrintStart (_, payload) {
-    consola.debug('Print start detected', payload)
+    console.log('Print start detected', payload)
   },
 
   /**
@@ -68,7 +67,7 @@ export const actions: ActionTree<PrinterState, RootState> = {
    * Fires as a watch on a printer state change.
    */
   async onPrintEnd (_, payload) {
-    consola.debug('Print end detected', payload)
+    console.log('Print end detected', payload)
   },
 
   /**
@@ -144,11 +143,11 @@ export const actions: ActionTree<PrinterState, RootState> = {
         }
       }
 
-      // Add a temp chart entry
-      const retention = (rootState.server)
-        ? rootState.server.config.server.temperature_store_size
-        : Globals.CHART_HISTORY_RETENTION
-      handleAddChartEntry(retention, getters.getChartableSensors)
+      // Add a temp chart entry 暂时注释
+      // const retention = (rootState.server)
+      //   ? rootState.server.config.server.temperature_store_size
+      //   : Globals.CHART_HISTORY_RETENTION
+      // handleAddChartEntry(retention, getters.getChartableSensors)
     }
   }
 }

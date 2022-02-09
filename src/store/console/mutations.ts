@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import { MutationTree } from 'vuex'
 import { defaultState } from './'
-import { Globals } from '@/globals'
+import { Globals } from '@/config/globals'
 import { ConsoleEntry, ConsoleState } from './types'
 
 export const mutations: MutationTree<ConsoleState> = {

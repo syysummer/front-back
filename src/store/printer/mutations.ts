@@ -2,7 +2,6 @@ import Vue from 'vue'
 import { MutationTree } from 'vuex'
 import { PrinterState } from './types'
 import { defaultState } from './index'
-import consola from 'consola'
 import { get } from 'lodash'
 
 export const mutations: MutationTree<PrinterState> = {
@@ -32,7 +31,7 @@ export const mutations: MutationTree<PrinterState> = {
   },
   setResetCurrentFile (state) {
     const newState = defaultState().printer.current_file
-    consola.debug('resetting current file', newState)
+    console.log('resetting current file', newState)
     Vue.set(state.printer, 'current_file', newState)
   },
   setSocketNotify (state, payload) {

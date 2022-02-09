@@ -2,9 +2,9 @@ import { ActionTree } from 'vuex'
 import { ConfigState, SaveByPath, InitConfig, InstanceConfig, UiSettings } from './types'
 import { RootState } from '../types'
 import { SocketActions } from '@/api/socketActions'
-import { loadLocaleMessagesAsync, getStartingLocale } from '@/plugins/i18n'
-import { Waits } from '@/globals'
+import { Waits } from '@/config/globals'
 import { AppTableHeader } from '@/types'
+import { loadLocaleMessagesAsync, getStartingLocale } from '@/plugins/i18n'
 
 export const actions: ActionTree<ConfigState, RootState> = {
   /**
@@ -21,10 +21,11 @@ export const actions: ActionTree<ConfigState, RootState> = {
     commit('setInitUiSettings', payload)
 
     // Set vuetify to the correct initial theme.
-    // if (state.uiSettings.theme) {
-    //   vuetify.framework.theme.dark = state.uiSettings.theme.isDark
-    //   vuetify.framework.theme.currentTheme.primary = state.uiSettings.theme.currentTheme.primary
-    // }
+    if (state.uiSettings.theme) {
+      // vuetify暂时注释
+      // vuetify.framework.theme.dark = state.uiSettings.theme.isDark
+      // vuetify.framework.theme.currentTheme.primary = state.uiSettings.theme.currentTheme.primary
+    }
 
     // Set the correct language.
     if (

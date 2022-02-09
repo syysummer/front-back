@@ -1,5 +1,4 @@
 import { AppDirectory, AppFile } from '@/store/files/types'
-import { InputValidationRules } from 'vuetify'
 
 export interface FileSystemDialogData {
   type: 'rename' | 'createdir' | 'createfile' | '';
@@ -7,7 +6,7 @@ export interface FileSystemDialogData {
   valid: boolean;
   title: string;
   formLabel: string;
-  rules: InputValidationRules;
+  rules?: any;
   item: AppDirectory | NewDirectory | AppFile;
   original?: AppDirectory | AppFile;
 }

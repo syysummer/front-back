@@ -1,7 +1,7 @@
 import { GetterTree } from 'vuex'
 import { ChartState } from './types'
 import { RootState } from '../types'
-import { Globals } from '@/globals'
+import { Globals } from '@/config/globals'
 import dayjs from 'dayjs'
 
 export const getters: GetterTree<ChartState, RootState> = {
@@ -40,6 +40,7 @@ export const getters: GetterTree<ChartState, RootState> = {
     const isDark = rootState.config?.uiSettings.theme.isDark
 
     const fontColor = (isDark) ? 'rgba(255,255,255,0.65)' : 'rgba(0,0,0,0.45)'
+    // const fontSize = (isMobile) ? 13 : 14
     const fontSize = 14
 
     const lineStyle = {

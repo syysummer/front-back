@@ -6,22 +6,16 @@ import { InitConfig } from './config/types'
 // Modules
 import { socket } from './socket'
 import { auth } from './auth'
-import { server } from './server'
-import { printer } from './printer'
-import { config } from './config'
-import { files } from './files'
-import { layout } from './layout'
 import { charts } from './charts'
-import { console } from './console'
-import { macros } from './macros'
-import { power } from './power'
+import { files } from './files'
 import { history } from './history'
-import { version } from './version'
-import { cameras } from './cameras'
-import { mesh } from './mesh'
-import { notifications } from './notifications'
+import { printer } from './printer'
+import { server } from './server'
+import { config } from './config'
 import { wait } from './wait'
-import { gcodePreview } from './gcodePreview'
+import { version } from './version'
+import { console } from './console'
+import { notifications } from './notifications'
 
 Vue.use(Vuex)
 
@@ -31,22 +25,16 @@ export default new Vuex.Store<RootState>({
   modules: {
     socket,
     auth,
-    server,
-    printer,
-    config,
-    files,
-    layout,
     charts,
-    console,
-    macros,
-    power,
+    files,
     history,
-    version,
-    cameras,
-    mesh,
-    notifications,
+    printer,
+    server,
+    config,
     wait,
-    gcodePreview
+    version,
+    console,
+    notifications,
   },
   mutations: {},
   actions: {
@@ -86,5 +74,8 @@ export default new Vuex.Store<RootState>({
     /**
      * A void action. Some socket commands may not need processing.
      */
+    void (_, payload) {
+      // console.log('void action', payload)
+    }
   }
 })

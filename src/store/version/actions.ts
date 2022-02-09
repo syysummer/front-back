@@ -1,5 +1,4 @@
 import { ActionTree } from 'vuex'
-import consola from 'consola'
 import { VersionState } from './types'
 import { RootState } from '../types'
 import { SocketActions } from '@/api/socketActions'
@@ -60,29 +59,29 @@ export const actions: ActionTree<VersionState, RootState> = {
    * Notifications of specific updates
    */
   async onUpdatedMoonraker ({ commit }, payload) {
-    consola.debug('Finished updating moonraker', payload)
+    console.log('Finished updating moonraker', payload)
     SocketActions.machineUpdateStatus()
     // We do this because moonraker is expected to restart.
     commit('socket/setSocketDisconnecting', true, { root: true })
   },
 
   async onUpdatedKlipper (_, payload) {
-    consola.debug('Finished updating klipper', payload)
+    console.log('Finished updating klipper', payload)
     SocketActions.machineUpdateStatus()
   },
 
   async onUpdatedClient (_, payload) {
-    consola.debug('Finished updating a client', payload)
+    console.log('Finished updating a client', payload)
     SocketActions.machineUpdateStatus()
   },
 
   async onUpdatedFluidd (_, payload) {
-    consola.debug('Finished updating fluidd, reloading', payload)
+    console.log('Finished updating fluidd, reloading', payload)
     window.location.reload()
   },
 
   async onUpdatedSystem (_, payload) {
-    consola.debug('Finished updating system', payload)
+    console.log('Finished updating system', payload)
     SocketActions.machineUpdateStatus()
   }
 }

@@ -95,3 +95,5 @@ export interface ServerConfiguration {
   gcode_store_size: number;
   temperature_store_size: number;
 }
+
+

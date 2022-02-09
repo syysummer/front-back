@@ -1,12 +1,11 @@
 import Vue from 'vue'
-import { Globals, Waits } from '@/globals'
+import { Globals, Waits } from '@/config/globals'
 import store from '../store'
 import { NotifyOptions } from '@/plugins/socketClient'
-import consola from 'consola'
 
 const baseEmit = (method: string, options: NotifyOptions) => {
   if (!Vue.$socket) {
-    consola.warn('Socket emit denied, socket not ready.', method, options)
+    console.log('Socket emit denied, socket not ready.', method, options)
     return
   }
   if (
@@ -15,7 +14,7 @@ const baseEmit = (method: string, options: NotifyOptions) => {
   ) {
     Vue.$socket.emit(method, options)
   } else {
-    consola.debug('Socket emit denied, in disonnecting state:', method, options)
+    console.log('Socket emit denied, in disonnecting state:', method, options)
   }
 }
 

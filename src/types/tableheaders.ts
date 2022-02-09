@@ -1,5 +1,3 @@
-import { DataTableHeader } from 'vuetify'
-
 /**
  * Vuetify table headers, extended with data so we can more easily save
  * and reference later.
@@ -13,4 +11,4 @@ export interface AppTablePartialHeader {
   visible?: boolean;
 }
 
-export interface AppTableHeader extends DataTableHeader, AppTablePartialHeader {}
+export interface AppTableHeader extends AppTablePartialHeader {}

@@ -1,5 +1,5 @@
 import { ActionTree } from 'vuex'
-import { Globals } from '@/globals'
+import { Globals } from '@/config/globals'
 import { ConsoleEntry, ConsoleState } from './types'
 import { RootState } from '../types'
 import { SocketActions } from '@/api/socketActions'

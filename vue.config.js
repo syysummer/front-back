@@ -1,13 +1,6 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-// const MonacoEditorPlugin = require('monaco-editor-webpack-plugin')
-const GenerateFilePlugin = require('generate-file-webpack-plugin')
-const ThreadsPlugin = require('threads-plugin')
 const path = require('path')
 
 const v = require('./package.json').version
-// const h = require('child_process')
-//   .execSync('git rev-parse --short HEAD')
-//   .toString()
 
 module.exports = {
   pluginOptions: {
@@ -32,29 +25,11 @@ module.exports = {
       background_color: '#000000'
     }
   },
-  // transpileDependencies: [
-  //   'vuetify'
-  // ],
   configureWebpack: {
     devtool: 'source-map',
     resolve: {
       symlinks: false // Don't follow symlinks, fixes issues when using npm link.
     },
-    plugins: [
-      // new MonacoEditorPlugin({
-      //   languages: ['markdown'],
-      //   features: ['!contextmenu', '!snippets', '!multicursor']
-      // }),
-      new GenerateFilePlugin({
-        file: '.version',
-        content: 'v' + v + '\n'
-      }),
-      new ThreadsPlugin()
-      // new BundleAnalyzerPlugin({
-      //   analyzerMode:
-      //     (process.env.NODE_ENV === 'production') ? 'server' : 'disabled'
-      // })
-    ]
   },
   productionSourceMap: !(['production', 'prod'].includes(process.env.NODE_ENV)),
   // 生产环境的 source map
@@ -100,12 +75,12 @@ module.exports = {
         ]
       })
       .end()
-    // config
-    //   .plugin('define')
-    //   .tap(args => {
-    //     args[0]['process.env'].VERSION = JSON.stringify(v)
-    //     args[0]['process.env'].HASH = JSON.stringify(h)
-    //     return args
-    // })
-  }
+  },
+  lintOnSave: false,
+  devServer: {
+    overlay: {
+      warning: false,
+      errors: true
+    }
+  },
 }

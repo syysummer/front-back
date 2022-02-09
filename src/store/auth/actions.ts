@@ -6,7 +6,6 @@ import { authApi } from '@/api/auth.api'
 import httpClient from '@/api/httpClient'
 import { getTokenKeys } from './helpers'
 import router from '@/router'
-import consola from 'consola'
 
 export const actions: ActionTree<AuthState, RootState> = {
   /**
@@ -73,7 +72,7 @@ export const actions: ActionTree<AuthState, RootState> = {
       const now = Date.now() / 1000 // now in unixtime.
       const isExpiring = (exp - now) < 300 // refresh within 5 minutes / 5 * 60
       if (isExpiring) {
-        consola.debug('checkToken - isExpiring', Vue.$dayjs(now * 1000), Vue.$dayjs(exp * 1000))
+        // console.log('checkToken - isExpiring', Vue.$dayjs(now * 1000), Vue.$dayjs(exp * 1000))
         return true
       } else {
         // console.debug('checkToken - not isExpiring', Vue.$dayjs(now * 1000), Vue.$dayjs(exp * 1000))
