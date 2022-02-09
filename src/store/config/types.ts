@@ -53,6 +53,7 @@ export interface ThemeConfig {
   currentTheme: {[index: string]: string | undefined }; // the color list.
   isDark: boolean; // inidicates if the theme as a whole is dark or not.
   logo: SupportedThemeLogo; // Current logo to use.
+  theme: string; // Current theme
 }
 
 // Config defined in host

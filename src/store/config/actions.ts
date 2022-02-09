@@ -5,6 +5,7 @@ import { SocketActions } from '@/api/socketActions'
 import { Waits } from '@/config/globals'
 import { AppTableHeader } from '@/types'
 import { loadLocaleMessagesAsync, getStartingLocale } from '@/plugins/i18n'
+import { changeTheme, THEME_TYPE } from '@/config/colorConfig'
 
 export const actions: ActionTree<ConfigState, RootState> = {
   /**
@@ -20,11 +21,11 @@ export const actions: ActionTree<ConfigState, RootState> = {
   async initUiSettings ({ commit, dispatch, state }, payload: UiSettings) {
     commit('setInitUiSettings', payload)
 
-    // Set vuetify to the correct initial theme.
+    // 更新ui的主题色
     if (state.uiSettings.theme) {
-      // vuetify暂时注释
-      // vuetify.framework.theme.dark = state.uiSettings.theme.isDark
-      // vuetify.framework.theme.currentTheme.primary = state.uiSettings.theme.currentTheme.primary
+      // 更新页面
+      const theme: THEME_TYPE = state.uiSettings.theme.theme as THEME_TYPE || 'theme1'
+      changeTheme(theme)
     }
 
     // Set the correct language.

@@ -57,6 +57,7 @@ export const defaultState = (): ConfigState => {
       },
       theme: {
         isDark: true,
+        theme: 'theme1',
         logo: {
           src: '/logo_fluidd.svg',
           dynamic: true

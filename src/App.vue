@@ -58,6 +58,7 @@ export default class App extends Mixins(Vue) {
 html, body, #app{
   width: 100%;
   height: 100%;
+  background-color: var(--color1);
 }
 .about {
   width: 20rem;

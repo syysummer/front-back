@@ -6,7 +6,7 @@
  export const COLOR_MAP = {
   // 第一套主题颜色
   theme1: {
-    color1: '#FFCDD2',
+    color1: '#303237',
     color2: '#E1BEE7',
     color3: '#EF9A9A',
     color4: '#F06292'
