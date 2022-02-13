@@ -1,7 +1,7 @@
 <template>
   <div class="start-up-page">
-    <div class="start-up-label">CREALITY</div>
-    <select name="lang" id="lang" @change="changeLang">
+    <!-- <div class="start-up-label">CREALITY</div>s s -->
+    <!-- <select name="lang" id="lang" @change="changeLang">
       <option :value="item" v-for="(item, index) in options" :key="index">{{item}}</option>
     </select>
     <div class="about">about</div>
@@ -11,17 +11,34 @@
       <option value="theme2">主题二</option>
       <option value="theme3">主题三</option>
       <option value="theme4">主题四</option>
-    </select>
+    </select> -->
 
-    <van-button type="primary">Vant按钮</van-button>
+    <!-- <van-button type="primary">Vant按钮</van-button> -->
+
+    <!-- 温度部分 -->
+    <div class="left-con">
+      <TemperControl />
+    </div>
+
+    <!-- 图表部分 -->
+    <div class="right-con">
+      <TemperChart />
+    </div>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Mixins, Vue } from 'vue-property-decorator'
 import { changeTheme, THEME_TYPE } from '@/config/colorConfig'
+import TemperControl from './components/temperControl.vue'
+import TemperChart from './components/temperChart11.vue'
 
-@Component({})
+@Component({
+  components: {
+    TemperControl,
+    TemperChart,
+  }
+})
 export default class StartUp extends Mixins(Vue) {
   jumpTimer: any = null
   options = ['ar', 'cn', 'cz', 'de']
@@ -54,9 +71,19 @@ export default class StartUp extends Mixins(Vue) {
     width: 100%;
     height: 100%;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     font-size: 1.5rem;
+    background: #000;
+    .left-con{
+      width: 30%;
+      height: 6.25rem;
+      background-color: #222222;
+    }
+    .right-con{
+      width: 37.5rem;
+      height: 31.25rem;
+      background-color: #323232;
+    }
   }
 </style>
